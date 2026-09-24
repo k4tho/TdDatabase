@@ -36,11 +36,11 @@ The project also includes an Orders interface prototype. Its database functional
 
 ## Screenshots
 
-- [Parts Catalog](docs/screenshots/parts-catalog.png)
-- [Part Details](docs/screenshots/part-details.png)
-- [Add Part](docs/screenshots/add-part.png)
-- [Edit Part](docs/screenshots/edit-part.png)
-- [Orders Catalog](docs/screenshots/orders-catalog.png)
+- [Parts Catalog](SamplePhotos/PartsCatalog.png)
+- [Part Details](SamplePhotos/PartDetails.png)
+- [Add Part](SamplePhotos/AddPart.png)
+- [Edit Part](SamplePhotos/EditPart.png)
+- [Orders Catalog](SamplePhotos/OrdersCatalog.png)
 
 ## Technology
 
