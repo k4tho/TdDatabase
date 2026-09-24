@@ -1,0 +1,196 @@
+<Window x:Class="PartsInfo.PartInfoWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PartsInfo"
+        mc:Ignorable="d"
+        Title="Part Details" Height="720" Width="720"
+        MinHeight="600" MinWidth="640"
+        WindowStartupLocation="CenterOwner"
+        FontFamily="Segoe UI"
+        Background="{StaticResource WindowBackgroundBrush}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <ScrollViewer Grid.Row="0" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+            <StackPanel Margin="28,24">
+                <Border Style="{StaticResource CardBorderStyle}" Margin="0,0,0,16">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150"/>
+                            <ColumnDefinition Width="18"/>
+                            <ColumnDefinition Width="125"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Border Grid.Column="0" Width="140" Height="140" CornerRadius="8"
+                                Background="{StaticResource SurfaceMutedBrush}">
+                            <Grid>
+                                <Image x:Name="ImagePath" Source="{Binding}" Stretch="Uniform" Margin="10"/>
+                                <Button x:Name="ButtonImagePath" Visibility="Collapsed"
+                                        Style="{StaticResource SecondaryButtonStyle}"
+                                        Padding="5" Click="Edit_Image_Button_Click">
+                                    <Grid>
+                                        <Image x:Name="ButtonImage" Source="{Binding}" Stretch="Uniform"/>
+                                        <Border Background="#99000000" VerticalAlignment="Bottom" Padding="4">
+                                            <TextBlock Text="Change image" Foreground="White" FontSize="11"
+                                                       HorizontalAlignment="Center"/>
+                                        </Border>
+                                    </Grid>
+                                </Button>
+                            </Grid>
+                        </Border>
+
+                        <StackPanel Grid.Column="2" VerticalAlignment="Center">
+                            <TextBlock x:Name="LabelPartNumber" Text="Part number" Style="{StaticResource FieldLabelStyle}" Margin="0,0,0,12"/>
+                            <TextBlock x:Name="LabelDrawing" Text="Drawing" Style="{StaticResource FieldLabelStyle}" Margin="0,0,0,12"/>
+                            <TextBlock x:Name="LabelRev" Text="Revision" Style="{StaticResource FieldLabelStyle}" Margin="0"/>
+                        </StackPanel>
+
+                        <StackPanel x:Name="StackpanelInfoRow0" Grid.Column="3" VerticalAlignment="Center">
+                            <TextBlock x:Name="TextblockPartNumber" Text="Insert" Foreground="{StaticResource TextBrush}"
+                                       FontSize="15" FontWeight="SemiBold" Margin="0,0,0,16"/>
+                            <TextBlock x:Name="TextblockDrawing" Text="Insert" Foreground="{StaticResource TextBrush}"
+                                       FontSize="14" Margin="0,0,0,16"/>
+                            <TextBlock x:Name="TextblockRev" Text="Insert" Foreground="{StaticResource TextBrush}" FontSize="14"/>
+                        </StackPanel>
+
+                        <StackPanel x:Name="StackpanelEditRow0" Grid.Column="3" VerticalAlignment="Center" Visibility="Collapsed">
+                            <TextBox x:Name="TextboxPartNumber" Text="Insert" Style="{StaticResource FormTextBoxStyle}" Margin="0,0,0,8"/>
+                            <TextBox x:Name="TextboxDrawing" Text="Insert" Style="{StaticResource FormTextBoxStyle}" Margin="0,0,0,8"/>
+                            <TextBox x:Name="TextboxRev" Text="Insert" Style="{StaticResource FormTextBoxStyle}"/>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+
+                <Border Style="{StaticResource CardBorderStyle}" Margin="0,0,0,16">
+                    <Grid>
+                        <TextBlock x:Name="LabelDescription" Text="Description" Style="{StaticResource SectionTitleStyle}"/>
+                        <StackPanel x:Name="StackpanelInfoRow1" Margin="0,34,0,0">
+                            <TextBlock x:Name="TextblockDescription" Text="Insert" Foreground="{StaticResource TextBrush}"
+                                       FontSize="14" TextWrapping="Wrap" LineHeight="22"/>
+                        </StackPanel>
+                        <StackPanel x:Name="StackpanelEditRow1" Margin="0,34,0,0" Visibility="Collapsed">
+                            <TextBlock x:Name="LabelIgnoreDescription" Text="Description" Visibility="Collapsed"/>
+                            <TextBox x:Name="TextboxDescription" Text="Insert" Style="{StaticResource FormTextBoxStyle}"
+                                     MinHeight="78" AcceptsReturn="True" TextWrapping="Wrap"
+                                     VerticalContentAlignment="Top"/>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+
+                <Border Style="{StaticResource CardBorderStyle}" Margin="0,0,0,16">
+                    <StackPanel>
+                        <TextBlock Text="Part information" Style="{StaticResource SectionTitleStyle}"/>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="130"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="130"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="16"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="16"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+
+                            <TextBlock x:Name="LabelMaterial" Grid.Row="0" Grid.Column="0" Text="Material" Style="{StaticResource FieldLabelStyle}" Margin="0" VerticalAlignment="Center"/>
+                            <TextBlock x:Name="LabelSupplier" Grid.Row="0" Grid.Column="2" Text="Supplier" Style="{StaticResource FieldLabelStyle}" Margin="0" VerticalAlignment="Center"/>
+                            <TextBlock x:Name="LabelSource" Grid.Row="2" Grid.Column="0" Text="Source" Style="{StaticResource FieldLabelStyle}" Margin="0" VerticalAlignment="Center"/>
+                            <TextBlock x:Name="LabelMaterialCost" Grid.Row="2" Grid.Column="2" Text="Material cost" Style="{StaticResource FieldLabelStyle}" Margin="0" VerticalAlignment="Center"/>
+                            <TextBlock x:Name="LabelPriceEach" Grid.Row="4" Grid.Column="0" Text="Price each" Style="{StaticResource FieldLabelStyle}" Margin="0" VerticalAlignment="Center"/>
+
+                            <StackPanel x:Name="StackpanelInfoRow2" Grid.Row="0" Grid.RowSpan="5" Grid.Column="1" Grid.ColumnSpan="3">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="130"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="16"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="16"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <TextBlock x:Name="TextblockMaterial" Grid.Row="0" Grid.Column="0" Text="Insert" FontWeight="SemiBold" VerticalAlignment="Center"/>
+                                    <TextBlock x:Name="TextblockSupplier" Grid.Row="0" Grid.Column="2" Text="Insert" FontWeight="SemiBold" VerticalAlignment="Center"/>
+                                    <TextBlock x:Name="TextblockSource" Grid.Row="2" Grid.Column="0" Text="Insert" FontWeight="SemiBold" VerticalAlignment="Center"/>
+                                    <TextBlock x:Name="TextblockMaterialCost" Grid.Row="2" Grid.Column="2" Text="Insert" FontWeight="SemiBold" VerticalAlignment="Center"/>
+                                    <TextBlock x:Name="TextblockPriceEach" Grid.Row="4" Grid.Column="0" Text="Insert" FontWeight="SemiBold" VerticalAlignment="Center"/>
+                                </Grid>
+                            </StackPanel>
+
+                            <StackPanel x:Name="StackpanelEditRow2" Grid.Row="0" Grid.RowSpan="5" Grid.Column="1" Grid.ColumnSpan="3" Visibility="Collapsed">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="130"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="10"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="10"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <TextBox x:Name="TextboxMaterial" Grid.Row="0" Grid.Column="0" Text="Insert" Style="{StaticResource FormTextBoxStyle}"/>
+                                    <TextBox x:Name="TextboxSupplier" Grid.Row="0" Grid.Column="2" Text="Insert" Style="{StaticResource FormTextBoxStyle}"/>
+                                    <TextBox x:Name="TextboxSource" Grid.Row="2" Grid.Column="0" Text="Insert" Style="{StaticResource FormTextBoxStyle}"/>
+                                    <TextBox x:Name="TextboxMaterialCost" Grid.Row="2" Grid.Column="2" Text="Insert" Style="{StaticResource FormTextBoxStyle}"/>
+                                    <TextBox x:Name="TextboxPriceEach" Grid.Row="4" Grid.Column="0" Text="Insert" Style="{StaticResource FormTextBoxStyle}"/>
+                                </Grid>
+                            </StackPanel>
+                        </Grid>
+                    </StackPanel>
+                </Border>
+
+                <Border Style="{StaticResource CardBorderStyle}">
+                    <Grid>
+                        <TextBlock x:Name="LabelComment" Text="Comment" Style="{StaticResource SectionTitleStyle}"/>
+                        <StackPanel x:Name="StackpanelInfoRow3" Margin="0,34,0,0">
+                            <TextBlock x:Name="TextblockComment" Text="Insert" Foreground="{StaticResource TextBrush}"
+                                       FontSize="14" TextWrapping="Wrap" MinHeight="48"/>
+                        </StackPanel>
+                        <StackPanel x:Name="StackpanelEditRow3" Margin="0,34,0,0" Visibility="Collapsed">
+                            <TextBlock x:Name="LabelIgnoreComment" Text="Comment" Visibility="Collapsed"/>
+                            <TextBox x:Name="TextboxComment" Text="Insert" Style="{StaticResource FormTextBoxStyle}"
+                                     MinHeight="78" AcceptsReturn="True" TextWrapping="Wrap"
+                                     VerticalContentAlignment="Top"/>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+            </StackPanel>
+        </ScrollViewer>
+
+        <Border Grid.Row="1" Background="{StaticResource SurfaceBrush}"
+                BorderBrush="{StaticResource BorderBrush}" BorderThickness="0,1,0,0"
+                Padding="28,14">
+            <Grid>
+                <Button x:Name="ButtonEdit" Content="Edit part" Width="110"
+                        HorizontalAlignment="Right" Style="{StaticResource PrimaryButtonStyle}"
+                        Click="Edit_Button_Click"/>
+                <StackPanel x:Name="StackpanelEditButtons" Orientation="Horizontal"
+                            HorizontalAlignment="Stretch" Visibility="Collapsed">
+                    <Button x:Name="ButtonDelete" Content="Delete" Width="96"
+                            Style="{StaticResource DangerButtonStyle}" Click="Delete_Button_Click"/>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                        <Button x:Name="ButtonCancel" Content="Cancel" Width="96" Margin="12,0,0,0"
+                                Style="{StaticResource SecondaryButtonStyle}" Click="Cancel_Button_Click"/>
+                        <Button x:Name="ButtonOk" Content="Save changes" Width="126" Margin="10,0,0,0"
+                                Style="{StaticResource PrimaryButtonStyle}" Click="Ok_Button_Click"/>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>
