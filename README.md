@@ -1,8 +1,6 @@
 # Parts Inventory Manager
 
-A Windows desktop application for organizing, searching, and maintaining part records in a MySQL database. The application provides a clean catalog interface for viewing part details, costs, suppliers, drawings, and images.
-
-The project also includes an Orders interface prototype. Its database functionality has not yet been implemented.
+A Windows desktop application for organizing, searching, and maintaining part records in a MySQL database. The application provides a clean catalog interface for viewing part details, costs, suppliers, drawings, and images. The project also includes an Orders interface with a similar functionality but for viewing customer and order information. Its database functionality is not included as that information is private. However, procedures to set up a database can be found below.
 
 ## Features
 
@@ -30,6 +28,8 @@ The project also includes an Orders interface prototype. Its database functional
 - Tracking:
   - Order ID
   - Customer Name
+  - Customer Email
+  - Customer Address
   - Order Date
   - Shipment Status
   - Products Ordered
